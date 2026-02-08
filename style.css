@@ -320,7 +320,7 @@ nav {
     position: relative;
 }
 
-.section-header {
+/* .section-header {
     text-align: center;
     margin-bottom: 3rem;
     opacity: 0;
@@ -339,6 +339,19 @@ nav {
     -webkit-text-fill-color: transparent; /* Chrome/Safari */
 
     margin-bottom: 1rem;
+} */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 
@@ -742,4 +755,5 @@ nav {
     font-size: 0.95rem;
     backdrop-filter: blur(10px);
 }
+
 
