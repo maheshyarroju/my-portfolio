@@ -120,32 +120,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Contact Form Submission
-    contactForm.addEventListener('submit', (e) => {
+    // Contact Form Submission (Formspree)
+    contactForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        // Basic validation
-        if (!name || !email || !message) {
-            alert('Please fill in all fields.');
-            return;
+    
+        const formData = new FormData(contactForm);
+    
+        try {
+            const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: formData,
+                headers: {
+                    Accept: "application/json",
+                },
+            });
+    
+            if (response.ok) {
+                // Show success toast
+                toast.innerText = "Message Sent Successfully!";
+                toast.classList.add("show");
+    
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 3000);
+    
+                // Clear form
+                contactForm.reset();
+            } else {
+                alert("Oops! Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            alert("Network error. Please check your internet and try again.");
         }
-
-        // Simulate sending message
-        console.log('Form submitted:', { name, email, message });
-
-        // Show success toast
-        toast.classList.add('show');
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 3000);
-
-        // Clear form
-        contactForm.reset();
     });
+
 
     // Scroll Reveal Animations for Sections
     const sectionObserver = new IntersectionObserver((entries, observer) => {
@@ -192,3 +200,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
