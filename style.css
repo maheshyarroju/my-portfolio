@@ -332,14 +332,14 @@ nav {
     font-size: 2.8rem;
     background: var(--gradient-1);
 
-    background-clip: text;              /* Standard */
-    -webkit-background-clip: text;      /* Chrome/Safari */
+    background-clip: text;              
+    -webkit-background-clip: text;      
 
-    color: transparent;                 /* Standard */
-    -webkit-text-fill-color: transparent; /* Chrome/Safari */
+     color: transparent;                 
+    -webkit-text-fill-color: transparent; 
 
     margin-bottom: 1rem;
-} */
+} */ 
 
 .section-header {
   text-align: center;
@@ -755,5 +755,6 @@ nav {
     font-size: 0.95rem;
     backdrop-filter: blur(10px);
 }
+
 
 
